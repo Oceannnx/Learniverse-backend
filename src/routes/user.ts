@@ -7,7 +7,7 @@ import { logout } from "../controller/user/logout";
 const router = express.Router();
 
 router.post("/register", register);
-router.post("/login", login);
-router.post("/logout", isLogin, logout);
+router.post("/login", isLogin, login);
+router.post("/logout", logout);
 
 export default router;

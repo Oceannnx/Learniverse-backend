@@ -17,9 +17,9 @@ export const validateToken = (
 export const isLogin = (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = req.cookies.token;
-    if (token) return res.status(401).send("You are already logged in");
+    if (token) return res.status(400).send("You are already logged in");
     next();
-  } catch (error: any) {
-    return res.status(400).send(`Error: ${error.message}`);
+  } catch (err: any) {
+    return res.status(400).send(`Error: ${err.message}`);
   }
 };

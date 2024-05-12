@@ -1,11 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
 import { port, mongoURL } from "./config/config";
+import cookieParser from "cookie-parser";
 
 import user from "./routes/user";
 
 const app = express();
+app.use(cookieParser());
 app.use(express.json());
 
 app.use("/user", user);
