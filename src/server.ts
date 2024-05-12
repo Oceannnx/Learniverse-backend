@@ -2,12 +2,19 @@ import express from "express";
 import mongoose from "mongoose";
 import { port, mongoURL } from "./config/config";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import user from "./routes/user";
 
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 app.use("/user", user);
 
