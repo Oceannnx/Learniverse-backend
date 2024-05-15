@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import { userModel } from "../../model/user";
 import jwt from "jsonwebtoken";
 import { hashPassword, passwordCheck } from "../../utils/passwordManager";
+import { cookieConfig } from "../../config/cookieConfig";
 
 export const register = async (req: Request, res: Response) => {
   try {
@@ -28,7 +29,7 @@ export const register = async (req: Request, res: Response) => {
       algorithm: "HS256",
     });
     return res
-      .cookie("token", payload, { httpOnly: true })
+      .cookie("token", payload, cookieConfig)
       .send("User registered successfully");
   } catch (err: any) {
     return res.status(400).send(`Error: ${err.message}`);

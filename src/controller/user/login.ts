@@ -3,6 +3,7 @@ import { userModel } from "../../model/user";
 import { comparePassword } from "../../utils/passwordManager";
 import jwt from "jsonwebtoken";
 import { jwtSecret } from "../../config/config";
+import { cookieConfig } from "../../config/cookieConfig";
 
 export const login = async (req: Request, res: Response) => {
   try {
@@ -17,9 +18,8 @@ export const login = async (req: Request, res: Response) => {
     const payload = jwt.sign({ userID: result._id }, String(jwtSecret), {
       algorithm: "HS256",
     });
-    const cookieAge = 1000 * 60 * 60 * 24 * 3; // 3 days
     return res
-      .cookie("token", payload, { maxAge: cookieAge })
+      .cookie("token", payload, cookieConfig)
       .send("User logged in successfully");
   } catch (err: any) {
     return res.status(400).send(`Error: ${err.message}`);

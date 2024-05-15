@@ -16,6 +16,5 @@ export const passwordCheck = (password: string): boolean => {
   const regex = new RegExp(
     "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.!@#\\$%^&\\*])(?=.{8,})" // Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
   );
-  console.log(regex.test(password));
   return regex.test(password);
 };
