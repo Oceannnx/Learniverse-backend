@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 
 import user from "./routes/user";
+import exam from "./routes/exam";
 
 const app = express();
 app.use(cookieParser());
@@ -17,6 +18,7 @@ app.use(
 );
 
 app.use("/user", user);
+app.use("/exam", exam);
 
 app.listen(port, async () => {
   try {
