@@ -2,12 +2,13 @@ import { Request, Response } from "express";
 import { historyModel } from "../../model/history";
 
 export const submit = async (req: Request, res: Response) => {
-  const { examID, userID, correctAnswer, date, score } = req.body;
+  const { examID, userID, correctAnswer, date, score, timeLeft } = req.body;
   try {
     const payload = {
       examID,
       userID,
       score: score,
+      timeLeft,
       total: correctAnswer.length,
       date,
     };

@@ -4,22 +4,24 @@ const historySchema = new mongoose.Schema({
   userID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "users",
+    required: true,
   },
   examID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "exams",
+    required: true,
   },
   score: {
     type: Number,
-    required: true,
+  },
+  timeLeft: {
+    type: Number,
   },
   date: {
     type: Date,
-    required: true,
   },
   total: {
     type: Number,
-    required: true,
   },
 });
 
