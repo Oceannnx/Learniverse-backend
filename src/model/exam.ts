@@ -5,7 +5,7 @@ const examSchema = new mongoose.Schema({
     type: "String",
   },
   grade: {
-    type: "Date",
+    type: "String",
   },
   subject: {
     type: "String",
