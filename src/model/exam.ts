@@ -22,6 +22,10 @@ const examSchema = new mongoose.Schema({
   createBy: {
     type: "String",
   },
+  userID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+  },
   content: {
     type: ["Mixed"],
   },
