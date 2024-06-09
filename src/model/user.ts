@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
   displayName: {
     type: String,
-    required: false,
   },
   firstName: {
     type: String,
@@ -23,11 +22,9 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    required: true,
   },
   phone: {
     type: String,
-    required: false,
   },
 });
 
