@@ -28,7 +28,7 @@ export const changePassword = async (req: Request, res: Response) => {
     await userModel.findOneAndUpdate({ _id: Object.values(userID) }, user, {
       new: true,
     });
-    return res.status(200).send("Password updated").clearCookie("token");
+    return res.status(200).clearCookie("token").send("Password updated");
   } catch (err) {
     console.log(err);
   }
